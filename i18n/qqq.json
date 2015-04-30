@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Florian Schmidt"
+		]
+	},
+	"oojsuiajaxlogin-desc": "{{doc-special|OOJsUIAjaxLogin}}",
+	"oojsuiajaxlogin-loading": "Test for the login link used to indicate, that the Ajax login overlay is loading."
+}
