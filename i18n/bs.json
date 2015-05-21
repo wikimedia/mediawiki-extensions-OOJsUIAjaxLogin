@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Emir Mujadzic"
+		]
+	},
+	"oojsuiajaxlogin-desc": "Dodaje na Ajax Prijavu oblogu za MediaWiki.",
+	"oojsuiajaxlogin-loading": "Učitavanje ..."
+}

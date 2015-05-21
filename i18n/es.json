@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Fitoschido"
 		]
 	},
-	"oojsuiajaxlogin-loading": "Cargando..."
+	"oojsuiajaxlogin-desc": "Añade una ventana emergente de acceso a MediaWiki.",
+	"oojsuiajaxlogin-loading": "Cargando…"
 }
