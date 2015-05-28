@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"H4nek"
+			"H4nek",
+			"Mormegil"
 		]
 	},
-	"oojsuiajaxlogin-loading": "Načítání..."
+	"oojsuiajaxlogin-loading": "Načítání…"
 }
