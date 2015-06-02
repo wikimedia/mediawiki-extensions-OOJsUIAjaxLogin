@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Esketti"
+		]
+	},
+	"oojsuiajaxlogin-desc": "Voegt een Ajax Login overlay voor MediaWiki.",
+	"oojsuiajaxlogin-loading": "Bezig met laden…"
+}
