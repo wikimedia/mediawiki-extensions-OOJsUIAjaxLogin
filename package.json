@@ -1,11 +1,11 @@
 {
-	"scripts": {
-		"test": "jshint ./resources/ && jscs ./resources/",
-		"doc": "jsduck"
-	},
-	"devDependencies": {
-		"jshint": "2.6.3",
-		"jscs": "1.11.3",
-		"jscs-jsdoc": "git+https://github.com/jdlrobson/jscs-jsdoc.git#checkParamExistence"
-	}
+  "scripts": {
+    "test": "jshint ./resources/ && jscs ./resources/",
+    "doc": "jsduck"
+  },
+  "devDependencies": {
+    "jshint": "2.8.0",
+    "jscs": "1.13.1",
+    "jscs-jsdoc": "git+https://github.com/jdlrobson/jscs-jsdoc.git#checkParamExistence"
+  }
 }
