@@ -11,25 +11,19 @@
 		/**
 		 * @var {null|OO.ui.MessageDialog} save the created overlay from setup
 		 */
-		overlay: false,
+		overlay: null,
 		/**
 		 * @var {Number} loginRetry How often the login was retried (after 3 times, the login will be aborted)
 		 */
 		loginRetry: 0,
-		/**
-		 * @var {Boolean} loginLock Is there already a login process?
-		 */
-		loginLock: false,
 
 		/**
 		 * Setup the login overlay with all required fields, buttons and inputs.
 		 * Resulting Ovleray will be saved in this.overlay.
 		 * @private
-		 * @return {LoginOverlay} A new LoginOverlay instance
 		 */
 		_setup: function () {
-			var self = this,
-				overlay;
+			var self = this;
 
 			// initialize api to try to login later
 			this.api = new mw.Api();
@@ -43,9 +37,6 @@
 			}
 			// inherit MessageDialog to LoginOverlay
 			OO.inheritClass( LoginOverlay, OO.ui.MessageDialog );
-
-			// Set title to message from Special:UserLogin
-			LoginOverlay.static.title = mw.msg( 'login' );
 
 			// Default actions for this overlay
 			LoginOverlay.static.actions = [
@@ -73,20 +64,9 @@
 			LoginOverlay.prototype.getActionProcess = function ( action ) {
 				var params, signupParams;
 
-				// don't do anything, if there is already a login process
-				if ( self.loginLock ) {
-					return new OO.ui.Process(
-						function () {
-							return false;
-						},
-						this
-					);
-				}
 				switch ( action ) {
 					// login action, try a login with the data provided in the input fields
 					case 'login':
-						// lock the login process to don't do a login twice at the same time
-						self.loginLock = true;
 						// hide all fields and show the progress bar + resize the dialog
 						this.fieldset.toggle( false );
 						this.loginProgressBar.toggle( true );
@@ -113,6 +93,20 @@
 				}
 				// Fallback to parent handler
 				return LoginOverlay.super.prototype.getActionProcess.call( this, action );
+			};
+
+			/**
+			 * Key down handler to handle ENTER key and submit form.
+			 *
+			 * @param {jQuery.Event} ev Event object
+			 */
+			LoginOverlay.prototype.onDialogKeyDown = function ( ev ) {
+				LoginOverlay.super.prototype.onDialogKeyDown.call( this, ev );
+
+				// on key return, submit form
+				if ( ev.which === OO.ui.Keys.ENTER ) {
+					this.executeAction( 'login' );
+				}
 			};
 
 			/**
@@ -206,13 +200,12 @@
 			};
 
 			// Create a new LoginOverlay and save it to this.overlay
-			overlay = new LoginOverlay( {
+			this.overlay = new LoginOverlay( {
 				size: 'large'
 			} );
 
 			// Add the window to the window manager using the addWindows() method
-			windowManager.addWindows( [ overlay ] );
-			return overlay;
+			windowManager.addWindows( [ this.overlay ] );
 		},
 
 		/**
@@ -222,10 +215,12 @@
 		 */
 		show: function () {
 			if ( !this.overlay ) {
-				this.overlay = this._setup();
+				this._setup();
 			}
 			// Open the window!
-			windowManager.openWindow( this.overlay );
+			windowManager.openWindow( this.overlay, {
+				title: mw.msg( 'login' )
+			} );
 		},
 
 		/**
@@ -267,15 +262,12 @@
 						case 'Success':
 							// The user was logged in successfully, show a welcome message and reload
 							// this page
-							welcomeWidget = label1 = new OO.ui.LabelWidget( {
-								label: mw.msg( 'welcomeuser', data.login.lgusername )
+							ov.title.$element.fadeOut( 'slow', function () {
+								ov.title.setLabel( mw.msg( 'welcomeuser', data.login.lgusername ) );
+								ov.title.$element.fadeIn( 'slow' );
 							} );
-
-							ov.loginProgressBar.toggle( false );
-							ov.content.$element.append(
-								welcomeWidget.$element
-							);
 							ov.updateSize();
+
 							window.location.reload();
 							break;
 						default:
@@ -284,18 +276,13 @@
 							return self.addErrorMessage( ov, mw.msg( 'wrongpassword' ) );
 					}
 				} else {
-					// navigate to the full login page
-
-					// navigate to Special:UserLogin
+					// navigate to the full login page (Special:UserLogin)
 					window.location.href = mw.util.getUrl( 'Special:UserLogin', params );
 				}
 			} ).fail( function () {
 				// unknown error
 				// FIXME: i18n & better error handling
 				return self.addErrorMessage( ov, mw.msg( 'unknown-error' ) );
-			} ).always( function () {
-				// reset loginLock to allow a new login try
-				self.loginLock = false;
 			} );
 		},
 
@@ -312,6 +299,14 @@
 			ov.fieldset.toggle( true );
 			ov.errorMessageContainer.$element.text( msg );
 			ov.errorMessageContainer.toggle( true );
+			if (
+				( ov.usernameInput.getValue() && !ov.passwordInput.getValue() ) ||
+				( ov.usernameInput.getValue() && ov.passwordInput.getValue() )
+			) {
+				ov.passwordInput.focus();
+			} else {
+				ov.usernameInput.focus();
+			}
 			ov.updateSize();
 			return false;
 		}
