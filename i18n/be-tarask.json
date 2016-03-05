@@ -4,5 +4,6 @@
 			"Red Winged Duck"
 		]
 	},
-	"oojsuiajaxlogin-desc": "Дадае слой Ajax-уваходу ў MediaWiki."
+	"oojsuiajaxlogin-desc": "Дадае слой Ajax-уваходу ў MediaWiki.",
+	"oojsuiajaxlogin-loading": "Загрузка…"
 }
