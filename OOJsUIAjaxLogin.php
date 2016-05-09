@@ -27,7 +27,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 'This is an extension for Mediawiki and can not run standalone.' );
 }
 
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['other'][] = [
 	'path' => __FILE__,
 	'name' => 'OOJsUIAjaxLogin',
 	'author' => 'Florian Schmidt',
@@ -35,7 +35,7 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'oojsuiajaxlogin-desc',
 	'version'  => '0.0.1',
 	'license-name' => "MIT",
-);
+];
 
 // Autoload Classes
 $wgAutoloadClasses['OOJsUIAjaxLoginHooks'] = __DIR__ . '/includes/OOJsUIAjaxLogin.hooks.php';

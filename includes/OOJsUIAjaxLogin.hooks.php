@@ -9,9 +9,9 @@ class OOJsUIAjaxLoginHooks {
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$sk ) {
 		if ( !$out->getUser()->isLoggedIn() ) {
-			$out->addModules( array(
+			$out->addModules( [
 					'ext.OOJsUIAjaxLogin.init'
-				)
+				]
 			);
 		}
 	}

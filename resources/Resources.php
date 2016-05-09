@@ -1,35 +1,35 @@
 <?php
 // Resource template
-$wgResourceTemplate = array(
+$wgResourceTemplate = [
 	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'OOJsUIAjaxLogin/resources',
-);
+];
 // Resource modules
-$wgResourceModules += array(
-	'ext.OOJsUIAjaxLogin.init' => $wgResourceTemplate + array(
-		'scripts' => array(
+$wgResourceModules += [
+	'ext.OOJsUIAjaxLogin.init' => $wgResourceTemplate + [
+		'scripts' => [
 			'ext.OOJsUIAjaxLogin.init/init.js',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'oojsuiajaxlogin-loading',
-		),
-		'templates' => array(
+		],
+		'templates' => [
 			'loginLink.mustache' => 'ext.OOJsUIAjaxLogin.init/loginLink.mustache',
-		),
-	),
-	'ext.OOJsUIAjaxLogin.overlay' => $wgResourceTemplate + array(
-		'dependencies' => array(
+		],
+	],
+	'ext.OOJsUIAjaxLogin.overlay' => $wgResourceTemplate + [
+		'dependencies' => [
 			'oojs-ui',
 			'mediawiki.api',
 			'mediawiki.jqueryMsg',
-		),
-		'scripts' => array(
+		],
+		'scripts' => [
 			'ext.OOJsUIAjaxLogin.overlay/LoginOverlay.js',
-		),
-		'styles' => array(
+		],
+		'styles' => [
 			'ext.OOJsUIAjaxLogin.overlay/LoginOverlay.less',
-		),
-		'messages' => array(
+		],
+		'messages' => [
 			'login',
 			'wrongpassword',
 			'userlogin-yourname',
@@ -41,8 +41,8 @@ $wgResourceModules += array(
 			'cancel',
 			'welcomeuser',
 			'unknown-error',
-		),
-	),
-);
+		],
+	],
+];
 
 unset( $wgResourceTemplate );
