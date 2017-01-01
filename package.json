@@ -1,11 +1,10 @@
 {
   "scripts": {
-    "test": "jshint ./resources/ && jscs ./resources/",
+    "test": "grunt test",
     "doc": "jsduck"
   },
   "devDependencies": {
-    "jshint": "2.8.0",
-    "jscs": "1.13.1",
-    "jscs-jsdoc": "git+https://github.com/jdlrobson/jscs-jsdoc.git#checkParamExistence"
+    "grunt": "1.0.1",
+    "grunt-contrib-jshint": "1.0.0"
   }
 }
