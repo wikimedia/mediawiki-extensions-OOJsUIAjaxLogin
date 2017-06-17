@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"Hamilton Abreu"
 		]
 	},
+	"oojsuiajaxlogin-desc": "Adiciona uma janela sobreposta para entrar no MediaWiki.",
 	"oojsuiajaxlogin-loading": "A carregar…"
 }
