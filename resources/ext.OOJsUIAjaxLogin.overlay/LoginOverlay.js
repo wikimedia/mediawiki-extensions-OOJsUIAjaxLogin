@@ -43,7 +43,7 @@
 				{
 					action: 'login',
 					label: mw.msg( 'pt-login-button' ),
-					flags: [ 'primary', 'constructive' ]
+					flags: [ 'primary', 'progressive' ]
 				},
 				{
 					action: 'register',
