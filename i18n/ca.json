@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Macofe"
+			"Macofe",
+			"Fitoschido"
 		]
 	},
-	"oojsuiajaxlogin-loading": "Carregant..."
+	"oojsuiajaxlogin-loading": "S’està carregant…"
 }
