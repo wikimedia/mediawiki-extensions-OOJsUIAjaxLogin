@@ -5,21 +5,23 @@
 
 	/**
 	 * Class to setup, show and hide a new LoginOverlay.
+	 *
 	 * @class
 	 */
 	mw.OOJsUIAjaxLogin = {
 		/**
-		 * @var {null|OO.ui.MessageDialog} save the created overlay from setup
+		 * @member {null|OO.ui.MessageDialog} save the created overlay from setup
 		 */
 		overlay: null,
 		/**
-		 * @var {Number} loginRetry How often the login was retried (after 3 times, the login will be aborted)
+		 * @member {number} loginRetry How often the login was retried (after 3 times, the login will be aborted)
 		 */
 		loginRetry: 0,
 
 		/**
 		 * Setup the login overlay with all required fields, buttons and inputs.
 		 * Resulting Ovleray will be saved in this.overlay.
+		 *
 		 * @private
 		 */
 		_setup: function () {
@@ -30,6 +32,7 @@
 
 			/**
 			 * Constructor for LoginOverlay MessageDialog
+			 *
 			 * @param {Object} config Configuration parameters
 			 */
 			function LoginOverlay( config ) {
@@ -59,7 +62,8 @@
 
 			/**
 			 * Handles a click on one of the defined actions for this overlay.
-			 * @param {String} [action] Symbolic name of action
+			 *
+			 * @param {string} [action] Symbolic name of action
 			 */
 			LoginOverlay.prototype.getActionProcess = function ( action ) {
 				var params, signupParams;
@@ -192,7 +196,8 @@
 
 			/**
 			 * Override the getBodyHeight() method to specify a custom height (or don't to use the automatically generated height)
-			 * @return {Number} Height of the Dialog
+			 *
+			 * @return {number} Height of the Dialog
 			 */
 			LoginOverlay.prototype.getBodyHeight = function () {
 				// get the height of the body and let some place for error messages
@@ -210,6 +215,7 @@
 
 		/**
 		 * Setup a new overlay (if needed) and show it with the windowManager
+		 *
 		 * @method
 		 * @member mw.OOJsUIAjaxLogin
 		 */
@@ -225,11 +231,12 @@
 
 		/**
 		 * Try to login with the given data through the Api.
-		 * @param {String} username Plain User name
-		 * @param {String} password Plain Password
+		 *
+		 * @param {string} username Plain User name
+		 * @param {string} password Plain Password
 		 * @param {LoginOverlay} ov The LoginOverlay object where this function is called from
-		 * @param {String} [token] Optional logintoken provided by the login api
-		 * @return {Boolean}
+		 * @param {string} [token] Optional logintoken provided by the login api
+		 * @return {boolean}
 		 * @method
 		 * @member mw.OOJsUIAjaxLogin
 		 */
@@ -288,9 +295,10 @@
 
 		/**
 		 * Adds an errorbox to the provided login form with the provided message and turns off any progressbar.
+		 *
 		 * @param {LoginOverlay} ov LoginOverlay object to show the errorbox on
-		 * @param {String} msg Error text
-		 * @return {Boolean} always returns false
+		 * @param {string} msg Error text
+		 * @return {boolean} always returns false
 		 * @method
 		 * @member mw.OOJsUIAjaxLogin
 		 */

@@ -2,6 +2,7 @@
 	/**
 	 * Loginlink click handler.
 	 * Opens the login OOJs dialog or redirect to the login page, if an error occurs.
+	 *
 	 * @param {jQuery.Event} ev
 	 * @ignore
 	 */
