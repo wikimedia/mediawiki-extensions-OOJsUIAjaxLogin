@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Sabelöga"
 		]
 	},
+	"oojsuiajaxlogin-desc": "Lägger till Ajax Login-överlägg till MediaWiki",
 	"oojsuiajaxlogin-loading": "Läser in..."
 }
