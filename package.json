@@ -1,4 +1,5 @@
 {
+	"name": "OOJsUIAjaxLogin",
 	"private": true,
 	"scripts": {
 		"test": "grunt test",
