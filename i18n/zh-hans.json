@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Stang"
 		]
 	},
 	"oojsuiajaxlogin-desc": "添加Ajax登录重叠至MediaWiki。",
-	"oojsuiajaxlogin-loading": "载入中……"
+	"oojsuiajaxlogin-loading": "加载中……"
 }
