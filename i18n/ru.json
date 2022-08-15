@@ -1,9 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Facenapalm"
+			"Facenapalm",
+			"Pacha Tchernof"
 		]
 	},
 	"oojsuiajaxlogin-desc": "Добавляет оверлей Ajax-авторизации в MediaWiki.",
-	"oojsuiajaxlogin-loading": "Загрузка…"
+	"oojsuiajaxlogin-loading": "Загружается…"
 }
