@@ -90,7 +90,7 @@
 						};
 
 						// navigate to Special:UserLogin/signup
-						window.location.href = mw.util.getUrl( 'Special:UserLogin', $.extend( params, signupParams ) );
+						window.location.href = mw.util.getUrl( 'Special:UserLogin', Object.assign( params, signupParams ) );
 						return;
 					default:
 						break;
