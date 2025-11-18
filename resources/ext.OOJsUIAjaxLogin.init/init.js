@@ -7,7 +7,7 @@
 	 * @ignore
 	 */
 	function onLoginClick( ev ) {
-		var $el = $( ev.target ),
+		const $el = $( ev.target ),
 			$oldEl = $el;
 
 		// replace login link with a loading text to indicate, that the login form is loading
@@ -18,13 +18,13 @@
 		);
 
 		// load the overlay module and show the overlay
-		mw.loader.using( 'ext.OOJsUIAjaxLogin.overlay', function () {
+		mw.loader.using( 'ext.OOJsUIAjaxLogin.overlay', () => {
 			// replace the loading text with the old login link
 			$( '#oojsui-ajaxlogin' ).replaceWith( $oldEl );
 			// re-add event listener
 			$oldEl.on( 'click', onLoginClick );
 			mw.OOJsUIAjaxLogin.show();
-		}, function () {
+		}, () => {
 			// if the module could not be loaded, navigate to the original target
 			location.href = ev.target.href;
 		} );

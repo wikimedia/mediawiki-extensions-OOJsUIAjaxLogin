@@ -1,6 +1,6 @@
 ( function ( $ ) {
 	// Create and append a window manager, which will open and close the window.
-	var windowManager = new OO.ui.WindowManager();
+	const windowManager = new OO.ui.WindowManager();
 	$( 'body' ).append( windowManager.$element );
 
 	/**
@@ -25,7 +25,7 @@
 		 * @private
 		 */
 		_setup: function () {
-			var self = this;
+			const self = this;
 
 			// initialize api to try to login later
 			this.api = new mw.Api();
@@ -66,7 +66,7 @@
 			 * @param {string} [action] Symbolic name of action
 			 */
 			LoginOverlay.prototype.getActionProcess = function ( action ) {
-				var params, signupParams;
+				let params, signupParams;
 
 				switch ( action ) {
 					// login action, try a login with the data provided in the input fields
@@ -117,7 +117,7 @@
 			 * Initialize the overlay, create input fields and labels and so on.
 			 */
 			LoginOverlay.prototype.initialize = function () {
-				var progressBarFieldset = new OO.ui.FieldsetLayout();
+				const progressBarFieldset = new OO.ui.FieldsetLayout();
 
 				// Call the parent method
 				LoginOverlay.super.prototype.initialize.call( this );
@@ -186,10 +186,10 @@
 			 * @return {OO.ui.Process} Ready process
 			 */
 			LoginOverlay.prototype.getReadyProcess = function ( data ) {
-				var self = this;
+				const self = this;
 				// make sure, that username input field is focused
 				return LoginOverlay.super.prototype.getReadyProcess.call( this, data )
-					.next( function () {
+					.next( () => {
 						self.usernameInput.focus();
 					} );
 			};
@@ -241,7 +241,7 @@
 		 * @member mw.OOJsUIAjaxLogin
 		 */
 		tryLogin: function ( username, password, ov, token ) {
-			var self = this;
+			const self = this;
 
 			// make the request
 			return this.api.post( {
@@ -249,8 +249,8 @@
 				lgname: username,
 				lgpassword: password,
 				lgtoken: token
-			} ).done( function ( data ) {
-				var params = {
+			} ).done( ( data ) => {
+				let params = {
 						returnto: mw.config.get( 'wgPageName' )
 					},
 					welcomeWidget;
@@ -269,7 +269,7 @@
 						case 'Success':
 							// The user was logged in successfully, show a welcome message and reload
 							// this page
-							ov.title.$element.fadeOut( 'slow', function () {
+							ov.title.$element.fadeOut( 'slow', () => {
 								ov.title.setLabel( mw.msg( 'welcomeuser', data.login.lgusername ) );
 								ov.title.$element.fadeIn( 'slow' );
 							} );
@@ -286,11 +286,11 @@
 					// navigate to the full login page (Special:UserLogin)
 					window.location.href = mw.util.getUrl( 'Special:UserLogin', params );
 				}
-			} ).fail( function () {
+			} ).fail( () =>
 				// unknown error
 				// FIXME: i18n & better error handling
-				return self.addErrorMessage( ov, mw.msg( 'unknown-error' ) );
-			} );
+				 self.addErrorMessage( ov, mw.msg( 'unknown-error' ) )
+			 );
 		},
 
 		/**
