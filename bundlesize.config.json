@@ -1,0 +1,8 @@
+[
+	{
+		"@note": "opt-out, see https://www.mediawiki.org/wiki/Performance_budgeting",
+		"resourceModule": "ext.OOJsUIAjaxLogin.init",
+		"ignoreDependencies": true,
+		"maxSize": null
+	}
+]
