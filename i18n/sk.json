@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"oojsuiajaxlogin-desc": "Pridáva do MediaWiky prekryvné prihlasovacie okno cez Ajax",
+	"oojsuiajaxlogin-loading": "Načítava sa…"
+}
